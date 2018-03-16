@@ -6,11 +6,12 @@ module.exports = {
   // `name` is used for layout names and booleans on the device/layout service
   // `prefix` is used for column classes, column attributes, and container breakpoint classes
   // `begin` is the pixel value at which this breakpoint becomes active
+
   breakpoints: [
     { name: 'mobile', prefix: 'xs', begin: 0 },
     { name: 'tablet', prefix: 'sm', begin: 768 },
-    { name: 'desktop', prefix: 'md', begin: 992 },
-    { name: 'huge', prefix: 'lg', begin: 1200 }
+    { name: 'desktop', prefix: 'md', begin: 1012 },
+    { name: 'huge', prefix: 'lg', begin: 1280 }
   ],
 
   // the number of columns for the grid
@@ -29,7 +30,7 @@ module.exports = {
   transformAllElementLayoutAttributes: false,
 
   // grid and layout element gutters
-  gutterPadding: '.5rem',
+  gutterPadding: '10px',
 
   // if false, no styles are included (trumps 'includeMediaCSS' and 'includeElementCSS')
   includeCSS: true
