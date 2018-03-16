@@ -1,20 +1,44 @@
 <form class="container-lg" {{action 'search' query location on="submit"}}>
   <hbox class="border p-2 m-4">
-    <box xs="12" sm="fill" class="p-2">
+    <vbox xs="12" sm="fill" class="p-2">
       <label class="d-block" for="search_query">Zoekopdracht</label>
       <p class="note mt-1">Functie, trefwoorden of bedrijf</p>
-      {{input value=query type="text" id="search_query" class="form-control input-block mt-2" required=true placeholder="Software engineer"}}
-    </box>
+      {{input
+          value=query
+          type="text"
+          id="search_query"
+          class="form-control input-block mt-2"
+          required=true
+          placeholder="Software engineer"}}
+    </vbox>
 
-    <box xs="12" sm="fill" class="p-2">
+    <vbox xs="12" sm="fill" class="p-2">
       <label class="d-block" for="search_location">Locatie</label>
       <p class="note mt-1">Plaats, provincie of postcode</p>
-      {{input value=location type="text" id="search_location" class="form-control input-block mt-2" required=true placeholder="Enschede"}}
-    </box>
+      {{input
+          value=location
+          type="text"
+          id="search_location"
+          class="form-control input-block mt-2"
+          required=true
+          placeholder="Amsterdam"
+          key-up=(action cancelUseCurrentLocation)}}
 
-    <box fit align-self="end" class="p-2">
+      {{#if useCurrentLocation.isIdle}}
+        <button class="btn-link text-left f6 mt-2" onclick={{perform useCurrentLocation}}>
+          {{fa-icon "location-arrow" class="mr-2"}}Gebruik uw huidige locatie
+        </button>
+      {{else}}
+        <div class="text-gray-light f6 mt-2">
+          {{fa-icon "spinner" spin=true class="mr-2"}}Huidige locatie ophalen…
+        </div>
+      {{/if}}
+    </vbox>
+
+    <vbox fit align-self="end" class="p-2">
       <button type="submit" class="btn btn-purple">Vacatures zoeken</button>
-    </box>
+      <div class="f6 mt-2 hidden-xs visible-sm">&nbsp;</div>
+    </vbox>
   </hbox>
 </form>
 
