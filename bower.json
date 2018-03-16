@@ -1,0 +1,20 @@
+{
+  "name": "indeed",
+  "description": "Small description for indeed goes here",
+  "main": "",
+  "authors": [
+    "Thomas Brus <thomas.brus@me.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/thomasbrus/indeed",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "primer-css": "^10.3.0"
+  }
+}
