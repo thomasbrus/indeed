@@ -1,16 +1,16 @@
-import Controller from '@ember/controller';
+import Component from '@ember/component';
 import { action } from 'ember-decorators/object';
 import { service } from 'ember-decorators/service';
 import { task } from 'ember-concurrency';
 
-export default class IndexController extends Controller {
+export default class SearchFormComponent extends Component {
   @service geolocation
 
   useCurrentLocation = task(function * () {
     let position = yield this.get('geolocation').retrievePosition();
-    let { locality } = yield this.get('geolocation').reverseGeocode(position);
-    this.set('location', locality);
-  })
+    let location = yield this.get('geolocation').lookupCity(position);
+    this.set('location', location);
+  }).drop()
 
   @action
   cancelUseCurrentLocation() {

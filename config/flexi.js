@@ -27,7 +27,7 @@ module.exports = {
   includeElementCSS: true,
 
   // if true, will convert layout attributes on non-layout elements to classes as well
-  transformAllElementLayoutAttributes: false,
+  transformAllElementLayoutAttributes: true,
 
   // grid and layout element gutters
   gutterPadding: '10px',
