@@ -1,8 +1,6 @@
 import Service from '@ember/service';
 import { service } from 'ember-decorators/service';
 
-const API_KEY = 'AIzaSyA5H2SLd8J0raugrc3YE51QrBp0vY-wpwg';
-
 export default class GeolocationService extends Service {
   @service ajax
 
@@ -12,18 +10,18 @@ export default class GeolocationService extends Service {
     });
   }
 
-  lookupCity(position) {
-    return this.reverseGeocode(position).then(response => {
-      let locality = response.results.find(result => result.types[0] === "locality");
-      return locality && locality.address_components[0].long_name;
-    });
-  }
+  async reverseGeocode(position) {
+    const url = 'https://maps.googleapis.com/maps/api/geocode/json';
+    const key = 'AIzaSyA5H2SLd8J0raugrc3YE51QrBp0vY-wpwg';
 
-  reverseGeocode(position) {
     let { latitude, longitude } = position.coords;
-    let url = 'https://maps.googleapis.com/maps/api/geocode/json';
-    let data = { latlng: `${latitude},${longitude}`, key: API_KEY };
+    let data = { latlng: `${latitude},${longitude}`, key };
 
-    return this.get('ajax').request(url, { data });
+    let response = await this.get('ajax').request(url, { data });
+    let { results: [{ address_components: addresses }, ] } = response;
+
+    return addresses.reduce((map, { long_name, types: [type, ] }) => {
+      map[type] = long_name; return map;
+    }, {});
   }
 }

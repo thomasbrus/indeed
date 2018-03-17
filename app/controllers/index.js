@@ -1,20 +1,15 @@
 import Controller from '@ember/controller';
 import { action } from 'ember-decorators/object';
 import { service } from 'ember-decorators/service';
-import { task, timeout } from 'ember-concurrency';
+import { task } from 'ember-concurrency';
 
 export default class IndexController extends Controller {
   @service geolocation
 
-  constructor() {
-    super(...arguments);
-  }
-
   useCurrentLocation = task(function * () {
-    yield timeout(3000);
     let position = yield this.get('geolocation').retrievePosition();
-    let location = yield this.get('geolocation').lookupCity(position);
-    this.set('location', location);
+    let { locality } = yield this.get('geolocation').reverseGeocode(position);
+    this.set('location', locality);
   })
 
   @action
