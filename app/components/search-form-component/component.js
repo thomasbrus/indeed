@@ -6,6 +6,9 @@ import { task } from 'ember-concurrency';
 export default class SearchFormComponent extends Component {
   @service geolocation
 
+  query = 'Software engineer'
+  location = 'Enschede'
+
   useCurrentLocation = task(function * () {
     let position = yield this.get('geolocation').retrievePosition();
     let location = yield this.get('geolocation').lookupCity(position);
@@ -19,6 +22,6 @@ export default class SearchFormComponent extends Component {
 
   @action
   search(query, location) {
-    alert(`Search for ${query} in ${location}`);
+    this.transitionToRoute('search', { queryParams: { query, location } });
   }
 }
