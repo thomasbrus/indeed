@@ -1,1 +1,9 @@
-<p>Search results for <em>{{model.query}}</em> in {{model.location}}</p>
+<div class="p-3 container-lg">
+  {{search-form-component query=(readonly model.query) location=(readonly model.location) action=(route-action 'search') class="border"}}
+  <p class="mt-3">Search results for <em>{{model.query}}</em> in {{model.location}}:</p>
+
+  <div class="blankslate blankslate-spacious mt-3">
+    <h3>No results found.</h3>
+    <p>No jobs found for <em>{{model.query}}</em> in {{model.location}}.</p>
+  </div>
+</div>

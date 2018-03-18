@@ -25,7 +25,7 @@
           key-up=(action cancelUseCurrentLocation)}}
 
       {{#if useCurrentLocation.isIdle}}
-        <button class="btn-link text-left f6 mt-2" onclick={{perform useCurrentLocation}}>
+        <button type="button" class="btn-link text-left f6 mt-2" onclick={{perform useCurrentLocation}}>
           {{fa-icon "location-arrow" class="mr-2"}}Gebruik uw huidige locatie
         </button>
       {{else}}

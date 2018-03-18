@@ -6,11 +6,11 @@ import { task } from 'ember-concurrency';
 export default class SearchFormComponent extends Component {
   @service geolocation
 
-  query = 'Software engineer'
-  location = 'Enschede'
+  query = this.query || 'Software engineer'
+  location = this.location || 'Enschede'
 
   useCurrentLocation = task(function * () {
-    let { latitude, longitude } = yield this.get('geolocation').retrievePosition();
+    let { latitude, longitude } = yield this.get('geolocation').retrieveCoordinates();
     let { locality } = yield this.get('geolocation').reverseGeocode(latitude, longitude);
     this.set('location', locality);
   }).drop()

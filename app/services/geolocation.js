@@ -5,7 +5,7 @@ import ENV from '../config/environment';
 export default class GeolocationService extends Service {
   @service ajax
 
-  retrievePosition() {
+  async retrieveCoordinates() {
     return new Promise(function(resolve, reject) {
       window.navigator.geolocation.getCurrentPosition(position => resolve(position.coords), reject);
     });
