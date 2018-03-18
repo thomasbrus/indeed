@@ -1,20 +1,20 @@
 import Service from '@ember/service';
 import { service } from 'ember-decorators/service';
+import ENV from '../config/environment';
 
 export default class GeolocationService extends Service {
   @service ajax
 
   retrievePosition() {
     return new Promise(function(resolve, reject) {
-      window.navigator.geolocation.getCurrentPosition(resolve, reject);
+      window.navigator.geolocation.getCurrentPosition(position => resolve(position.coords), reject);
     });
   }
 
-  async reverseGeocode(position) {
+  async reverseGeocode(latitude, longitude) {
     const url = 'https://maps.googleapis.com/maps/api/geocode/json';
-    const key = 'AIzaSyA5H2SLd8J0raugrc3YE51QrBp0vY-wpwg';
+    const key = ENV.GOOGLE_MAPS_API_KEY;
 
-    let { latitude, longitude } = position.coords;
     let data = { latlng: `${latitude},${longitude}`, key };
 
     let response = await this.get('ajax').request(url, { data });

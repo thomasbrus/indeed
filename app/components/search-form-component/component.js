@@ -10,9 +10,9 @@ export default class SearchFormComponent extends Component {
   location = 'Enschede'
 
   useCurrentLocation = task(function * () {
-    let position = yield this.get('geolocation').retrievePosition();
-    let location = yield this.get('geolocation').lookupCity(position);
-    this.set('location', location);
+    let { latitude, longitude } = yield this.get('geolocation').retrievePosition();
+    let { locality } = yield this.get('geolocation').reverseGeocode(latitude, longitude);
+    this.set('location', locality);
   }).drop()
 
   @action
@@ -22,6 +22,6 @@ export default class SearchFormComponent extends Component {
 
   @action
   search(query, location) {
-    this.transitionToRoute('search', { queryParams: { query, location } });
+    this.get('action')(query, location);
   }
 }

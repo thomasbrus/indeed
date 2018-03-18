@@ -6,10 +6,11 @@ export default class SearchRoute extends Route {
 
   queryParams = {
     query: { refreshModel: true },
-    location: { refreshModel: true }
+    location: { refreshModel: true },
+    page: { refreshModel: true }
   }
 
-  model({ query, location }) {
-    return this.get('indeed').search(query, location);
+  model({ query, location, page }) {
+    return this.get('indeed').search(query, location, { page });
   }
 }
