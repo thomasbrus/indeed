@@ -1,6 +1,6 @@
 <form {{action 'search' query location on="submit"}}>
-  <hbox class="border p-2 m-4">
-    <vbox xs="12" sm="fill" class="p-2">
+  <box xs="vertical" sm="horizontal" class="p-2">
+    <vbox sm="fill" class="p-2">
       <label class="d-block" for="search_query">Zoekopdracht</label>
       <p class="note mt-1">Functie, trefwoorden of bedrijf</p>
       {{input
@@ -12,7 +12,7 @@
           placeholder="Software engineer"}}
     </vbox>
 
-    <vbox xs="12" sm="fill" class="p-2">
+    <vbox sm="fill" class="p-2">
       <label class="d-block" for="search_location">Locatie</label>
       <p class="note mt-1">Plaats, provincie of postcode</p>
       {{input
@@ -35,10 +35,10 @@
       {{/if}}
     </vbox>
 
-    <vbox fit align-self="end" class="p-2">
+    <vbox fit xs="align-self=start" sm="align-self=end" class="p-2">
       <button type="submit" class="btn btn-purple">Vacatures zoeken</button>
       <div class="f6 mt-2" xs="hidden" sm="visible">&nbsp;</div>
     </vbox>
-  </hbox>
+  </box>
 </form>
 
