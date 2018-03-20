@@ -30,8 +30,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    // ENV.INDEED_PUBLISHER_ID = ...;
-    // ENV.GOOGLE_MAPS_API_KEY = ...;
+    ENV.INDEED_PUBLISHER_ID = '8643394606355899';
+    ENV.GOOGLE_MAPS_API_KEY = 'AIzaSyA5H2SLd8J0raugrc3YE51QrBp0vY-wpwg';
   }
 
   if (environment === 'test') {

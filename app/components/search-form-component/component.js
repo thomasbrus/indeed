@@ -9,6 +9,8 @@ export default class SearchFormComponent extends Component {
   query = this.query || 'Software engineer'
   location = this.location || 'Enschede'
 
+  isPending = false
+
   useCurrentLocation = task(function * () {
     let { latitude, longitude } = yield this.get('geolocation').retrieveCoordinates();
     let { locality } = yield this.get('geolocation').reverseGeocode(latitude, longitude);
@@ -21,7 +23,9 @@ export default class SearchFormComponent extends Component {
   }
 
   @action
-  search(query, location) {
-    this.get('action')(query, location);
+  async search(query, location) {
+    this.set('isPending', true);
+    await this.get('action')(query, location).promise;
+    this.set('isPending', false);
   }
 }

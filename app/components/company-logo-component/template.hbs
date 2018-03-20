@@ -1,0 +1,11 @@
+{{#if fetchLogo.isRunning}}
+  <centered class="border rounded-1" style="width: 42px; height: 42px;">
+    {{fa-icon "spinner" spin=true}}
+  </centered>
+{{else if fetchLogo.lastSuccessful.value}}
+  <img class="rounded-1" alt={{company}} width="42" src={{fetchLogo.lastSuccessful.value}} />
+{{else}}
+  <centered class="border rounded-1" style="width: 42px; height: 42px;">
+    {{fa-icon "building-o"}}
+  </centered>
+{{/if}}

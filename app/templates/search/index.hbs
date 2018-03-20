@@ -1,0 +1,45 @@
+{{#if model.results.length}}
+  {{#each model.results as |result|}}
+    <vbox class="py-4 border-bottom">
+      <hbox nowrap>
+        <vbox fit align-self="center">
+          {{company-logo-component result.company}}
+        </vbox>
+        <vbox fill class="ml-3">
+          <h5 class="css-truncate">
+            <a href={{result.url}} class="css-truncate-target width-fit">
+              {{result.jobtitle}}
+            </a>
+          </h5>
+          <hbox class="f6">
+            <box fit>{{result.company}}</box>
+            <span class="px-1">·</span>
+            <box fit>{{result.formattedLocation}}</box>
+            <span class="px-1">·</span>
+            <box fit>{{result.formattedRelativeTime}}</box>
+          </hbox>
+        </vbox>
+      </hbox>
+
+      <hbox xs="10" class="p-0 mt-1 text-gray">
+        {{{result.snippet}}}
+      </hbox>
+    </vbox>
+  {{/each}}
+
+    <centered>
+      <section class="mt-6">
+         <div class="BtnGroup">
+          <a class="BtnGroup-item btn btn-outline disabled" href="#">Vorige</a>
+          <a class="BtnGroup-item btn btn-outline selected" href="#" {{action (route-action 'changePage' 1)}}>1</a>
+          <a class="BtnGroup-item btn btn-outline" href="#" {{action (route-action 'changePage' 2)}}>2</a>
+          <a class="BtnGroup-item btn btn-outline" href="#">Volgende</a>
+        </div>
+      </section>
+    </centered>
+{{else}}
+  <div class="blankslate blankslate-clean-background mt-4">
+    <h3>Geen resultaten gevonden.</h3>
+    <p>Geen vacatures gevonden voor <em>{{model.query}}</em> in {{model.location}}.</p>
+  </div>
+{{/if}}

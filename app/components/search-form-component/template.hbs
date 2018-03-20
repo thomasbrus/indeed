@@ -6,6 +6,7 @@
       {{input
           value=query
           type="text"
+          tabindex=1
           id="search_query"
           class="form-control input-block mt-2"
           required=true
@@ -18,6 +19,7 @@
       {{input
           value=location
           type="text"
+          tabindex=2
           id="search_location"
           class="form-control input-block mt-2"
           required=true
@@ -26,7 +28,7 @@
 
       {{#if useCurrentLocation.isIdle}}
         <button type="button" class="btn-link text-left f6 mt-2" onclick={{perform useCurrentLocation}}>
-          {{fa-icon "location-arrow" class="mr-2"}}Gebruik uw huidige locatie
+          {{fa-icon "location-arrow" class="mr-2"}}Gebruik huidige locatie
         </button>
       {{else}}
         <div class="text-gray-light f6 mt-2">
@@ -36,7 +38,9 @@
     </vbox>
 
     <vbox fit xs="align-self=start" sm="align-self=end" class="p-2">
-      <button type="submit" class="btn btn-purple">Vacatures zoeken</button>
+      <button type="submit" tabindex="3" class="btn btn-purple" disabled={{isPending}}>
+        Vacatures zoeken
+      </button>
       <div class="f6 mt-2" xs="hidden" sm="visible">&nbsp;</div>
     </vbox>
   </box>
