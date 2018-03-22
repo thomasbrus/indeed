@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import { service } from 'ember-decorators/service';
+import { service } from '@ember-decorators/service';
 import ENV from '../config/environment';
 
 export default class GeolocationService extends Service {

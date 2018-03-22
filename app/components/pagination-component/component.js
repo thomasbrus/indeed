@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from 'ember-decorators/object';
+import { computed } from '@ember-decorators/object';
 
 export default class PaginationComponent extends Component {
   @computed('pageCount')

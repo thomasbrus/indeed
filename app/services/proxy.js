@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import { service } from 'ember-decorators/service';
+import { service } from '@ember-decorators/service';
 
 export default class ProxyService extends Service {
   @service ajax

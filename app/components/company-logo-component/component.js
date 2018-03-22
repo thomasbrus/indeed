@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { service } from 'ember-decorators/service';
+import { service } from '@ember-decorators/service';
 import { task } from 'ember-concurrency';
 
 export default class CompanyLogoComponent extends Component {
@@ -22,7 +22,11 @@ export default class CompanyLogoComponent extends Component {
       return null;
     }
 
-    yield this.get('proxy').request(company.logo, { method: 'HEAD' });
-    return company.logo;
+    try {
+      yield this.get('proxy').request(company.logo, { method: 'HEAD' });
+      return company.logo;
+    } catch(e) {
+      return null;
+    }
   })
 }
