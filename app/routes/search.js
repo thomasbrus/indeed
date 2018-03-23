@@ -3,9 +3,9 @@ import { action } from '@ember-decorators/object';
 
 export default class SearchRoute extends Route {
   queryParams = {
-    query: { refreshModel: false },
-    location: { refreshModel: false },
-    page: { refreshModel: false }
+    query: { refreshModel: true },
+    location: { refreshModel: true },
+    page: { refreshModel: true }
   }
 
   model(params) {
