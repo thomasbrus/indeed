@@ -18,14 +18,12 @@ export default class SearchFormComponent extends Component {
   }).drop()
 
   @action
-  cancelUseCurrentLocation() {
-    this.get('useCurrentLocation').cancelAll();
+  search(query, location) {
+    this.get('task').perform(query, location);
   }
 
   @action
-  async search(query, location) {
-    this.set('isPending', true);
-    await this.get('action')(query, location).promise;
-    this.set('isPending', false);
+  cancelUseCurrentLocation() {
+    this.get('useCurrentLocation').cancelAll();
   }
 }

@@ -3,18 +3,13 @@ import { action } from '@ember-decorators/object';
 
 export default class SearchRoute extends Route {
   queryParams = {
-    query: { refreshModel: true },
-    location: { refreshModel: true },
-    page: { refreshModel: true }
+    query: { refreshModel: false },
+    location: { refreshModel: false },
+    page: { refreshModel: false }
   }
 
   model(params) {
     return params;
-  }
-
-  @action
-  search(query, location) {
-    return this.transitionTo('search.index', { queryParams: { query, location } });
   }
 
   @action

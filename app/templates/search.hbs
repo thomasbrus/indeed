@@ -1,5 +1,5 @@
 <div class="px-4 pt-8 pb-10 container-lg">
-  {{search-form-component query=(readonly model.query) location=(readonly model.location) action=(route-action 'search') class="border box-shadow bg-white rounded-1 p-1"}}
+  {{search-form-component query=(readonly model.query) location=(readonly model.location) task=(route-task 'search') class="border box-shadow bg-white rounded-1 p-1"}}
 
   <div class="px-4">
     {{outlet}}
