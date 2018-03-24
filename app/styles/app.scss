@@ -4,3 +4,9 @@
 body {
   background: hsla(199, 98%, 48%, 0.02);
 }
+
+.Logo {
+  width: $spacer-6;
+  height: $spacer-6;
+  border-radius: $border-radius;
+}

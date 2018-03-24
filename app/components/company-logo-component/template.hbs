@@ -1,19 +1,19 @@
 {{#if spinnerVisible}}
-  <centered class="border rounded-1" style="width: 42px; height: 42px;">
+  <centered class="Logo border">
     {{fa-icon "spinner" spin=true}}
   </centered>
 {{/if}}
 
 {{#if logoLoading}}
-  <img class="rounded-1 d-none" alt={{company}} width="42" src={{logoSrc}} onload={{action 'onLoad'}} onerror={{cancel-all loadLogo}} />
+  <img class="Logo d-none" alt={{company}} width="40" src={{logoSrc}} onload={{action 'onLoad'}} onerror={{cancel-all loadLogo}} />
 {{/if}}
 
 {{#if logoLoaded}}
-  <img class="rounded-1 d-block" alt={{company}} width="42" src={{logoSrc}} />
+  <img class="Logo d-block" alt={{company}} width="40" src={{logoSrc}} />
 {{/if}}
 
 {{#if placeholderVisible}}
-  <centered class="border rounded-1 bg-white" style="width: 42px; height: 42px;">
+  <centered class="Logo border bg-white">
     {{fa-icon "building-o"}}
   </centered>
 {{/if}}

@@ -3,7 +3,9 @@
     <vbox class="py-4 border-bottom">
       <hbox nowrap>
         <vbox fit align-self="center">
-          {{company-logo-component result.company}}
+          <a href={{result.url}} class="text-inherit">
+            {{company-logo-component result.company}}
+          </a>
         </vbox>
         <vbox fill class="ml-3">
           <h5 class="css-truncate">

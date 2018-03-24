@@ -17,9 +17,9 @@ export default class CompanyLogoComponent extends Component {
 
   @reads('loadLogo.isRunning') spinnerVisible
 
-  @and('resolveLogo.last.isSuccessful', 'loadLogo.isRunning') logoLoading
-  @reads('loadLogo.last.isSuccessful') logoLoaded
   @reads('resolveLogo.lastSuccessful.value') logoSrc
+  @and('resolveLogo.last.isSuccessful', 'loadLogo.isRunning') logoLoading
+  @and('loadLogo.last.isSuccessful', 'logoSrc') logoLoaded
 
   @computed('loadLogo.{isRunning,last.isCanceled}', 'logoSrc')
   get placeholderVisible() {
