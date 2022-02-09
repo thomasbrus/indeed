@@ -582,7 +582,7 @@ babel-core@^6.14.0, babel-core@^6.24.1, babel-core@^6.26.0:
 
 babel-eslint@^8.2.2:
   version "8.2.2"
-  resolved "http://registry.npmjs.org/babel-eslint/-/babel-eslint-8.2.2.tgz#1102273354c6f0b29b4ea28a65f97d122296b68b"
+  resolved "https://registry.npmjs.org/babel-eslint/-/babel-eslint-8.2.2.tgz#1102273354c6f0b29b4ea28a65f97d122296b68b"
   dependencies:
     "@babel/code-frame" "^7.0.0-beta.40"
     "@babel/traverse" "^7.0.0-beta.40"
@@ -5205,8 +5205,8 @@ morgan@^1.8.1:
     on-headers "~1.0.1"
 
 mout@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/mout/-/mout-1.1.0.tgz#0b29d41e6a80fa9e2d4a5be9d602e1d9d02177f6"
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/mout/-/mout-1.2.3.tgz#bd1477d8c7f2db5fcf43c91de30b6cc746b78e10"
 
 ms@0.7.1:
   version "0.7.1"
